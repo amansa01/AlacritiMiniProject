@@ -1,0 +1,87 @@
+<body background-image="src/images/Login-Page-Background.jpg">
+
+<h1 style="color:#177d4d; font-family:sans-serif; font-weight:bold; text-align:center; marquee-style: alternate }">
+  <marquee>Employee Leave Managment Tool!!</marquee>
+</h1>
+<div class="register-page">
+  <div class="form">
+    <h2 style="font-weight: bold;text-align: center">Register </h2>
+    <form class="register-form" #userForm="ngForm" (ngSubmit)="onSubmit(userForm.value)" novalidate>
+
+
+      <input type="text" #passwdRef="ngModel" maxlength="10" minlength="5" required placeholder="empid" name="empid" ngModel/>
+      <div *ngIf="passwdRef.errors && (passwdRef.dirty || passwdRef.touched)" class="alert alert-danger">>
+        <div [hidden]="!passwdRef.errors.required">
+          empid is required
+        </div>
+      </div>
+
+
+      <input type="text" #passwdRef="ngModel" maxlength="5" required placeholder="emp_status" name="empStatus" ngModel/>
+      <div *ngIf="passwdRef.errors && (passwdRef.dirty || passwdRef.touched)" class="alert alert-danger">>
+        <div [hidden]="!passwdRef.errors.required">
+          empStatus is required
+        </div>
+      </div>
+
+
+      <input type="text" #nameRef="ngModel" maxlength="30" minlength="5" required placeholder="email" name="email"
+             ngModel/>
+      <div *ngIf="nameRef.errors && (nameRef.dirty || nameRef.touched)" class="alert alert-danger">
+        <div [hidden]="!nameRef.errors.required">
+          email is required
+        </div>
+        <div [hidden]="!nameRef.errors.minlength">
+          Please enter atleast 5 characters
+        </div>
+      </div>
+      <input type="password" #passwdRef="ngModel" maxlength="15" minlength="5" required placeholder="Password"
+             name="password" ngModel/>
+      <div *ngIf="passwdRef.errors && (passwdRef.dirty || passwdRef.touched)" class="alert alert-danger">
+        <div [hidden]="!passwdRef.errors.required">
+          Password is required
+        </div>
+        <div [hidden]="!passwdRef.errors.minlength">
+          Please enter atleast 5 characters
+        </div>
+      </div>
+
+
+      <input type="text" #passwdRef="ngModel" maxlength="15" minlength="3" required placeholder="first" name="fName" ngModel/>
+      <div *ngIf="passwdRef.errors && (passwdRef.dirty || passwdRef.touched)" class="alert alert-danger">>
+        <div [hidden]="!passwdRef.errors.required">
+          First Name is required
+        </div>
+      </div>
+
+
+      <input type="text" #passwdRef="ngModel" maxlength="15" minlength="4" required placeholder="lname" name="lName" ngModel/>
+      <div *ngIf="passwdRef.errors && (passwdRef.dirty || passwdRef.touched)" class="alert alert-danger">>
+        <div [hidden]="!passwdRef.errors.required">
+          Lname is required
+        </div>
+      </div>
+
+
+      <input type="text" #passwdRef="ngModel" maxlength="1" required placeholder="gender" name="gender" ngModel/>
+      <div *ngIf="passwdRef.errors && (passwdRef.dirty || passwdRef.touched)" class="alert alert-danger">>
+        <div [hidden]="!passwdRef.errors.required">
+          Gender required
+        </div>
+      </div>
+
+        <input type="tel" #passwdRef="ngModel" maxlength="12" minlength="10"required placeholder="Contact Number" name="contactNo" ngModel/>
+        <div *ngIf="passwdRef.errors && (passwdRef.dirty || passwdRef.touched)" class="alert alert-danger">>
+          <div [hidden]="!passwdRef.errors.required">
+            Please provide contact details
+          </div>
+        </div>
+
+
+        <button [disabled]="!userForm.form.valid" type="submit">Register</button>
+       <!-- <p class="message">Not registered? <a routerLink="/register" routerLinkActive="active">Create an account</a></p>-->
+    </form>
+  </div>
+</div>
+</body>
+<router-outlet></router-outlet>
