@@ -1,0 +1,20 @@
+<!--<h1>{{Title}}</h1>-->
+<div>
+  <marquee>History</marquee>
+
+  <form [formGroup]="history" novalidate (ngSubmit)="save(history.value)">
+
+    <div class="form-group">
+      <h6>Employee ID</h6> <input type="text" class="form-control" name="empId" formControlName="empId" required
+                                  placeholder="Employee ID">
+
+    </div>
+
+       <button [disabled]="!history.valid" type="submit">Submit</button>
+  </form>
+
+
+</div>
+
+<router-outlet></router-outlet>
+
