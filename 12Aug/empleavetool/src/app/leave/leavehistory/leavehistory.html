@@ -1,0 +1,107 @@
+<title>Weekly Assignment </title>
+
+<link rel="stylesheet" href="mainpage.css">
+<div class="one"><h3>Employee Leave Management Tool </h3>
+
+  <button (click)="onClickLogout()"> Log out</button>
+
+</div>
+
+
+<div class="two" style="float:left"><h3>Contents</h3>
+  <ul>
+    <br>
+    <li>
+      <h4 (click)="onClickApplyLeave()"><b>Apply for a Leave</b></h4>
+    </li>
+    <br>
+    <li>
+      <h4 (click)="onClickHistory()"><b>LeaveHistory</b></h4>
+    </li>
+    <br>
+    <li>
+      <h4 (click)="onClickCancel()"><b>CancelHistory</b></h4>
+    </li>
+  </ul>
+
+
+</div>
+
+
+<!--<div class="three" style="float:right">Div 3-->
+<!--<ul>-->
+<!--<li>-->
+<!--Leave policies-->
+<!--</li>-->
+<!--<br>-->
+<!--<li>HoliDays-->
+<!--</li>-->
+<!--<br>-->
+<!--<li>Test3</li>-->
+<!--<br>-->
+<!--<li>Test4</li>-->
+<!--<br>-->
+<!--<li>Test5</li>-->
+<!--<br>-->
+
+
+<!--</ul>-->
+
+<!--</div>-->
+
+
+<div class="four">Div 4
+  <form [formGroup]="history" novalidate (ngSubmit)="save(history.value)">
+
+    <div class="form-group">
+      <h6>Employee ID</h6><input type="text" class="" name="empId" formControlName="empId" required
+                                 placeholder="Employee ID">
+
+    </div>
+
+    <button [disabled]="!history.valid" type="submit">Submit</button>
+  </form>
+<table>
+  <tr>
+
+    <th>empId</th>
+    <th>fromDate</th>
+    <th>lastModifyTime</th>
+    <th>leaveId</th>
+    <th>leaveStatus</th>
+    <th>leaveTag</th>
+    <th>noDays</th>
+    <th>reason</th>
+    <th>toDate</th>
+
+  </tr>
+  <!--<tr>-->
+    <!--<th>Return Value</th>-->
+  <!--</tr>-->
+
+  <tr *ngFor="let item of items">
+    <td>{{item.empId}}</td>
+    <td>{{item.fromDate}}</td>
+    <td>{{item.lastModifiedDate}}</td>
+    <td>{{item.leaveId}}</td>
+    <td>{{item.leaveStatus}}</td>
+    <td>{{item.leaveTag}}</td>
+    <td>{{item.noDays}}</td>
+    <td>{{item.reason}}</td>
+    <td>{{item.toDate}}</td>
+  </tr>
+  <!--<tr *ngFor="let leave of leaves">-->
+    <!--<td>{{leave.toDate}}</td>-->
+  <!--</tr>-->
+
+  </table>  <!--<tr>-->
+  <!--<th>Return Value</th></tr>-->
+  <!--<tr *ngFor="let leave of leaves">-->
+  <!--<td>{{leave.toDate}}</td>-->
+  <!--</table>-->
+</div>
+
+
+<div class="five"><h2>Thank You</h2></div>
+
+<router-outlet></router-outlet>

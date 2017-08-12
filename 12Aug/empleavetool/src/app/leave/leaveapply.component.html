@@ -1,0 +1,105 @@
+<link rel="stylesheet" href="mainpage.css">
+<div class="one"><h3>Employee Leave Management Tool </h3>
+
+  <button (click)="onClickLogout()"> Log out</button>
+
+</div>
+
+
+<div class="two" style="float:left"><h3>Contents</h3>
+  <ul>
+    <br>
+    <li>
+      <h4 (click)="onClickApplyLeave()"><b>Apply for a Leave</b></h4>
+    </li>
+    <br>
+    <li>
+      <h4 (click)="onClickHistory()"><b>LeaveHistory</b></h4>
+    </li>
+    <br>
+    <li>
+      <h4 (click)="onClickCancel()"><b>CancelHistory</b></h4>
+    </li>
+  </ul>
+
+
+</div>
+
+
+<div class="three" style="float:right">Div 3
+  <ul>
+    <li>
+      Leave policies
+    </li>
+    <br>
+    <li>HoliDays
+    </li>
+    <br>
+    <li>Test3</li>
+    <br>
+    <li>Test4</li>
+    <br>
+    <li>Test5</li>
+    <br>
+
+
+  </ul>
+
+</div>
+
+
+<div class="four">Div 4
+
+  <form [formGroup]="myForm" novalidate (ngSubmit)="save(myForm.value)">
+
+    <div class="form-group">
+      <h6>Employee ID</h6> <input type="text" class="form-control" name="empId" formControlName="empId" required
+                                  placeholder="Employee ID">
+
+    </div>
+
+    <div class="form-group"> Date From
+      <input type="date" class="form-control" name="applyDate" formControlName="fromDate" required placeholder="Date">
+
+    </div>
+
+    <div> Reason For Leave
+      <input type="text" class="form-control" required placeholder="Reason" formControlName="reason">
+    </div>
+
+
+    <div> No of Days Leave required for
+      <input type="number" class="form-control" required placeholder="No Of days" formControlName="noDays">
+    </div>
+
+
+
+
+    <select formControlName="leaveTag" placeholder="Leave Tag">Leave Tag
+      <option *ngFor="let tag of leavetag" value= {{tag.name}} (click)="show()">{{tag.name}} </option>
+    </select>
+
+
+    <!--<div>-->
+      <!--<input type="text" class="form-control" required placeholder="Tag For Leave" formControlName="leaveTag">-->
+    <!--</div>-->
+
+
+    <!--<div>-->
+    <!--<input type="text" class="form-control" required placeholder="Status OF leave" formControlName="leaveStatus">-->
+    <!--</div>-->
+
+
+    <div>
+      <input type="date" class="form-control" required placeholder="Leave Till" formControlName="toDate">
+    </div>
+
+    <button [disabled]="!myForm.valid" type="submit">Submit</button>
+  </form>
+
+</div>
+
+
+<div class="five"><h2>Thank You</h2></div>
+
+<router-outlet></router-outlet>
